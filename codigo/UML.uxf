@@ -1,17 +1,12 @@
-<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>100</x><y>100</y><w>210</w><h>190</h></coordinates><panel_attributes>Compromisso
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>112</x><y>40</y><w>410</w><h>160</h></coordinates><panel_attributes>Compromisso
 --
 -nome: String 
 -data: Data
 -repete: int
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>300</y><w>210</w><h>190</h></coordinates><panel_attributes>&lt;&lt;Stereotype&gt;&gt;
-Package::FatClass
-{Some Properties}
+#compromisso (nome: String, dia: int, mes: int; ano: int; repete: int)
+#compromisso (nome: String, dia: int, mes: int; ano: int)
+#compromisso()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>112</x><y>220</y><w>410</w><h>190</h></coordinates><panel_attributes>Calendario
 --
 -id: Long
 _-ClassAttribute: Long_
