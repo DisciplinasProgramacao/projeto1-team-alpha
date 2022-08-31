@@ -66,5 +66,4 @@ public class Compromisso {
     public void setRepete(int repete) {
         this.repete = repete;
     }
-
 }
