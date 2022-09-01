@@ -16,7 +16,6 @@ public class Compromisso {
         this.nome = nome;
         this.data = new Data(dia, mes, ano);
         this.repete = repete;
-
     }
 
     /**
@@ -41,6 +40,10 @@ public class Compromisso {
         this.data = new Data();
         this.repete = 0;
 
+    }
+    
+    public void imprimir() {
+    	System.out.println(this.nome + " - "+data.dataFormatada());
     }
 
     public Data getData() {
