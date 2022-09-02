@@ -17,7 +17,7 @@ public class App {
 		Data dataInicial = new Data(14,2,2022);
 		Data dataFinal = new Data(9,10,2022);
 		calendario.mostrarCompromissosIntervalo(dataInicial, dataFinal);
-
+		System.out.println(compromisso3.getData().eMenor(compromisso1.getData()));
 	}
 
 }

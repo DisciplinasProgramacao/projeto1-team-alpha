@@ -121,6 +121,19 @@ public class Data{
 
         return true;               
     }
+
+    public boolean eMenor(Data data){
+        if(this.ano <= data.getAno()){
+            if(this.mes <= data.getMes()){
+                if(this.dia <= data.getDia()){
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return false;
+    }
     //#endregion
 
     //#region Métodos principais
@@ -214,5 +227,5 @@ public class Data{
         return (String.format("%02d",this.dia)+ 
           "/" + String.format("%02d",this.mes)+ 
           "/" + String.format("%4d",this.ano));
-    } 
+    }
 }
