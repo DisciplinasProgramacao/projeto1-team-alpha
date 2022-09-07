@@ -41,7 +41,11 @@ public class Compromisso {
         this.repete = 0;
 
     }
+    public Compromisso copia(){
+        Compromisso clone = new Compromisso(this.getNome(), this.getData().getDia(), this.getData().getMes(), this.getData().getAno());
+        return clone;
     
+    }
     public void imprimir() {
     	System.out.println(this.nome + " - "+data.dataFormatada());
     }

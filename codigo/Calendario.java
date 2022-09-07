@@ -84,7 +84,15 @@ private int tamanho;
 		}
 	        
 	        
-	   
+	public void adicionarCompromissoRespetido(Compromisso novo, int intervalo){
+		Compromisso clone = novo.copia();
+		for(int l=0; l<novo.getRepete() ; l++){
+			this.adicionarCompromisso(clone);
+			clone = clone.copia();
+			clone.getData().adicionaDias(intervalo);
+		}
+
+	}
 	
 	public Compromisso removerCompromisso(String removido) throws Exception {
 	    

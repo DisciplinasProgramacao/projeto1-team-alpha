@@ -111,7 +111,7 @@ public class Data{
            if (this.mes < 1 || this.mes > 12)
                return false;
            else { 
-                    maximoDeDias = DIASDOMES[mes - 1];
+                    maximoDeDias = DIASDOMES[mes];
                    if (this.eAnoBissexto() && mes == 2)
                           maximoDeDias++;
                    if (this.dia > maximoDeDias)
