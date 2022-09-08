@@ -4,6 +4,9 @@ private Celula primeiro;
 private Celula ultimo;
 private int tamanho;
 
+	/**
+	 * Construtor sem parâmetros que inicializa as variáveis apontando o primeiro e o ultimo item da lista para a sentinela
+	 */
 	public Calendario() {
 	    
 	    Celula sentinela = new Celula();
@@ -13,7 +16,11 @@ private int tamanho;
 	    tamanho = 0;
 	}
 	
-	public boolean listaVazia() {
+	/**
+	 * Método booleano que verifica se o calendário está vazio
+	 * @return True caso esteja vazio e false caso não esteja
+	 */
+	public boolean calendarioVazio() {
 	    
 	    boolean resp;
 	    
@@ -25,13 +32,15 @@ private int tamanho;
 	    return resp;
 	}
 	
+	
+	/**
+	 * Método que recebe um compromisso para adicioná-lo no calendário
+	 * @param novo parâmetro do tipo Compromisso
+	 */
 	public void adicionarCompromisso(Compromisso novo) {
-	    
-	    
-		
+
 		Celula anterior, novaCelula, proximaCelula;
-		
-		
+
 			anterior = primeiro;
 			
 			if(anterior.getProximo() == null ) {
@@ -83,8 +92,12 @@ private int tamanho;
 			}
 		}
 	        
-	        
-	public void adicionarCompromissoRespetido(Compromisso novo, int intervalo){
+	/**
+	 * Método que adiciona um compromisso com repetições. Recebe como parâmetro 
+	 * @param novo param do tipo Compromisso
+	 * @param repeticao param do tipo inteiro
+	 */
+	public void adicionarCompromissoRepetido(Compromisso novo, int intervalo){
 		Compromisso clone = novo.copia();
 		for(int l=0; l<novo.getRepete() ; l++){
 			this.adicionarCompromisso(clone);
@@ -94,11 +107,17 @@ private int tamanho;
 
 	}
 	
+	/**
+	 * Método que recebe o nome de um compromisso por parâmetro e remove ele do calendário
+	 * @param removido parâmetro do tipo String com o nome do compromisso
+	 * @return retorna objeto compromisso removido
+	 * @throws Exception caso o compromisso não seja encontrado, é impresso uma mesagem de erro
+	 */
 	public Compromisso removerCompromisso(String removido) throws Exception {
 	    
 	    Celula anterior, celulaRemovida, proximaCelula;
 	    
-	    if (! listaVazia()) {
+	    if (! calendarioVazio()) {
 	        
 	            anterior = primeiro;
 	            while(!anterior.getProximo().getItem().getNome().equals(removido))
@@ -119,15 +138,17 @@ private int tamanho;
 	            return (celulaRemovida.getItem());	
 	        } else
 	            throw new Exception("Não foi possível remover o item da lista: a posição informada é inválida!");
-	    
 	} 
 
-	public void mostrarCompromissos(){
+	
+	/**
+	 * Método que mostra todos os compromissos criados do calendário
+	 */
+	public void mostrarTodosCompromissos(){
 	    
     Celula aux;
     
-	    if (! listaVazia()) {
-	        System.out.println("Conteúdo da lista:");
+	    if (! calendarioVazio()) {
 	        
 	        aux = primeiro.getProximo();
 	        while (aux != null) {
@@ -137,13 +158,16 @@ private int tamanho;
 	    }
 	}
 	
-	
+	/**
+	 * Método que imprime os compromissos marcados entre os datas parametrizadas. 
+	 * @param dataInicial parâmetro do tipo Data com dia, mês e ano
+	 * @param dataFinal parâmetro do tipo Data com dia, mês e ano
+	 */
 	public void mostrarCompromissosIntervalo(Data dataInicial, Data dataFinal){
 	    
 	    Celula aux;
 	    
-	    if (! listaVazia()) {
-	        System.out.println("Conteúdo da lista:");
+	    if (! calendarioVazio()) {
 	        
 	        aux = primeiro.getProximo();
 	        while (aux != null) {
@@ -156,11 +180,4 @@ private int tamanho;
 	        }
 	    }
 	}
-
-	
-
-
-
-
-
 }

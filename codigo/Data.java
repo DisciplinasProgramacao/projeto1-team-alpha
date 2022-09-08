@@ -100,7 +100,7 @@ public class Data{
 
     /**
     * Verifica se a data armazenada é válida (método privado). Só valem datas de 1900 em diante.
-    * @return TRUE se é válida; FALSE se não é válida
+    * @return Se a data é válida (true) e se não é válida (false)
     */
     private boolean dataValida(){
         int maximoDeDias = 0;
@@ -121,7 +121,12 @@ public class Data{
 
         return true;               
     }
-
+    
+    /**
+     * Método booleano que compara o parâmetro do tipo Data com o atributo data do próprio objeto para verificar se é menor
+     * @param data param do tipo Data
+     * @return Se data parametrizada é menor (true) e se é igual ou maior (false)
+     */
     public boolean eMenor(Data data){
         if(this.getAno() == data.getAno() && this.getMes() == data.getMes() && this.getDia() == data.getDia()){
             return false;
@@ -149,7 +154,7 @@ public class Data{
 
     /**
      * Método que adiciona a quantidade de dias informada a partir da data estipulada
-     * @param dias
+     * @param dias param do tipo inteiro
      */
     public void adicionaDias(int dias){
         int mes = DIASDOMES[(this.mes - 1) % 12];
