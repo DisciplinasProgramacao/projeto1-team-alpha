@@ -7,7 +7,7 @@ class Celula {
 	 * Construtor de Celula que recebe um parâmetro do tipo Compromisso
 	 * @param novo param do tipo Compromisso
 	*/
-	public Celula(Compromisso novo) {
+	public Celula(Compromisso novo) { 
 	
   	item = novo;
 		proximo = null;

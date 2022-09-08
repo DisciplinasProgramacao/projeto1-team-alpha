@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 class testaCalendario {
 	public static Calendario calendario;
 	public static Compromisso futebol;
-    private final ByteArrayOutputStream output = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream output = new ByteArrayOutputStream(); 
     
     /**
      * Método executado antes de cada teste, criando um objeto do tipo calendario e adicionando o compromisso futebol na data 10/10/2022

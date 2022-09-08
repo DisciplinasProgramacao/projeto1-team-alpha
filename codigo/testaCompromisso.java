@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class testCompromisso {
 
     @Test 
-    public void testConstrutor() {
+    public void testConstrutor() { 
         
     }
 

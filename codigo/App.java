@@ -7,11 +7,15 @@ public class App {
 		calendario.adicionarCompromisso(futebol);
 		System.out.println("Mostrando calendário:");
 		calendario.mostrarTodosCompromissos();
+
+
 		System.out.println("\nAdicionando compromisso pilates na data 12/09/2022");
 		Compromisso pilates = new Compromisso("Pilates",12,9,2022);
 		calendario.adicionarCompromisso(pilates);
 		System.out.println("Mostrando calendário:");
 		calendario.mostrarTodosCompromissos();
+
+
 		System.out.println("\nRemovendo o compromisso pilates");
 		try {
 			calendario.removerCompromisso("Pilates");
@@ -20,11 +24,15 @@ public class App {
 		}
 		System.out.println("Mostrando calendário:");
 		calendario.mostrarTodosCompromissos();
+
+
 		System.out.println("\nAdicionando o compromisso basquete de 7 em 7 dias durante 4 semanas:");
 		Compromisso basquete = new Compromisso("Basquete",3,11,2022,4);
 		calendario.adicionarCompromissoRepetido(basquete, 7);
 		System.out.println("Mostrando calendário:");
 		calendario.mostrarTodosCompromissos();
+
+		
 		System.out.println("\nMostrando os compromissos entre as datas 07/10/2022 e 20/11/2022");
 		Data dataInicial = new Data(7,10,2022);
 		Data dataFinal = new Data(10,11,2022);

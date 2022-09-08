@@ -10,7 +10,7 @@ public class Data{
     //atributos 
     private int dia;
     private int mes;
-    private int ano;
+    private int ano; 
     //#endregion
     
     //#region Construtores   

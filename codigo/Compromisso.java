@@ -9,7 +9,7 @@ public class Compromisso {
      * @param dia param do tipo inteiro
      * @param mes param do tipo inteiro
      * @param ano param do tipo inteiro
-     * @param repete param do tipo inteiro
+     * @param repete param do tipo inteiro 
      */
     public Compromisso(String nome, int dia, int mes, int ano, int repete) {
         this.nome = nome;

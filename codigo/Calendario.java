@@ -176,7 +176,7 @@ private int tamanho;
 			            aux.getItem().imprimir();
 			            
 	        	}
-				aux = aux.getProximo();
+				aux = aux.getProximo(); 
 	        }
 	    }
 	}
