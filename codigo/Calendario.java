@@ -1,11 +1,12 @@
 public class Calendario {
+	private Celula primeiro;
+	private Celula ultimo;
+	private int tamanho;
 
-private Celula primeiro;
-private Celula ultimo;
-private int tamanho;
-
+	/**
+	 * Construtor sem parâmetros que inicializa as variáveis apontando o primeiro e o ultimo item da lista para a sentinela
+	 */
 	public Calendario() {
-	    
 	    Celula sentinela = new Celula();
 	    
 	    primeiro = sentinela;
@@ -13,101 +14,103 @@ private int tamanho;
 	    tamanho = 0;
 	}
 	
+	/**
+	 * Método booleano que verifica se a lista está vazia
+	 * @return True caso esteja vazia e false caso não esteja
+	 */
 	public boolean listaVazia() {
-	    
-	    boolean resp;
-	    
 	    if (primeiro == ultimo)
-	        resp = true;
+			return true;
 	    else
-	        resp = false;
-	    
-	    return resp;
+			return false;
 	}
 	
+	/**
+	 * Método que recebe um compromisso para adicioná-lo no calendário
+	 * @param novo parâmetro do tipo Compromisso
+	 */
 	public void adicionarCompromisso(Compromisso novo) {
-	    
-	    
-		
 		Celula anterior, novaCelula, proximaCelula;
+		anterior = primeiro;
 		
-		
-			anterior = primeiro;
+		if (anterior.getProximo() == null) {
+			int posicao = 0;
+
+			for (int i = 0; i < posicao; i++)
+				anterior = anterior.getProximo();
+				
+			novaCelula = new Celula(novo);
+			proximaCelula = anterior.getProximo();
+			anterior.setProximo(novaCelula);
+			novaCelula.setProximo(proximaCelula);
 			
-			if(anterior.getProximo() == null ) {
-				int posicao = 0;
-				for (int i = 0; i < posicao; i++)
-					anterior = anterior.getProximo();
-					
-				novaCelula = new Celula(novo);
-				
-				proximaCelula = anterior.getProximo();
-				
-				anterior.setProximo(novaCelula);
-				novaCelula.setProximo(proximaCelula);
-				
-				
-				if (posicao == tamanho)  // a inserção ocorreu na última posição da lista
-					ultimo = novaCelula;
-				tamanho++;
-			}else {
-				
-				int posicao =0;
-				int controle=0;
-				while(controle ==0) {
-					if(novo.getData().eMenor(anterior.getItem().getData()) ) {
+			if (posicao == tamanho)  // a inserção ocorreu na última posição da lista
+				ultimo = novaCelula;
+
+			tamanho++;
+		} else {
+			int posicao = 0;
+			int controle = 0;
+
+			while (controle == 0) {
+				if (novo.getData().eMenor(anterior.getItem().getData()))
+					controle = 1;
+				else {
+					if (anterior.getProximo() == null) {
 						controle = 1;
-						
-					}else {
-						if(anterior.getProximo() == null) {
-							controle=1;
-							posicao++;
-						}else {
-							anterior = anterior.getProximo();
-							posicao++;}
-						
+						posicao++;
+					} else {
+						anterior = anterior.getProximo();
+						posicao++;
 					}
 				}
-				
-					anterior = primeiro;
-					for (int i = 1; i < posicao-1; i++)
-					anterior = anterior.getProximo();
-					
-				novaCelula = new Celula(novo);
-				
-				proximaCelula = anterior.getProximo();
-				
-				anterior.setProximo(novaCelula);
-				novaCelula.setProximo(proximaCelula);
-				tamanho++;
 			}
+			anterior = primeiro;
+
+			for (int i = 1; i < (posicao - 1); i++)
+				anterior = anterior.getProximo();
+				
+			novaCelula = new Celula(novo);
+			proximaCelula = anterior.getProximo();
+			anterior.setProximo(novaCelula);
+			novaCelula.setProximo(proximaCelula);
+
+			tamanho++;
 		}
-	        
-	        
-	public void adicionarCompromissoRespetido(Compromisso novo, int intervalo){
+	}
+
+	/**
+	 * Método que adiciona um compromisso com repetições. Recebe como parâmetro 
+	 * @param novo param do tipo Compromisso
+	 * @param repeticao param do tipo inteiro
+	 */
+	public void adicionarCompromissoRepetido(Compromisso novo, int repeticao) {
 		Compromisso clone = novo.copia();
-		for(int l=0; l<novo.getRepete() ; l++){
+
+		for (int l = 0; l < novo.getRepete(); l++) {
 			this.adicionarCompromisso(clone);
 			clone = clone.copia();
-			clone.getData().adicionaDias(intervalo);
+			clone.getData().adicionaDias(repeticao);
 		}
-
 	}
-	
+
+	/**
+	 * Método que recebe o nome de um compromisso por parâmetro e remove ele do calendário
+	 * @param removido parâmetro do tipo String com o nome do compromisso
+	 * @return retorna objeto compromisso removido
+	 * @throws Exception caso o compromisso não seja encontrado, é impresso uma mesagem de erro
+	 */
 	public Compromisso removerCompromisso(String removido) throws Exception {
-	    
 	    Celula anterior, celulaRemovida, proximaCelula;
 	    
 	    if (! listaVazia()) {
-	        
 	            anterior = primeiro;
-	            while(!anterior.getProximo().getItem().getNome().equals(removido))
+
+	            while (!anterior.getProximo().getItem().getNome().equals(removido))
 	                anterior = anterior.getProximo();
 	            
 	            celulaRemovida = anterior.getProximo();
-	            
 	            proximaCelula = celulaRemovida.getProximo();
-	            
 	            anterior.setProximo(proximaCelula);
 	            celulaRemovida.setProximo(null);
 	            
@@ -122,10 +125,12 @@ private int tamanho;
 	    
 	} 
 
-	public void mostrarCompromissos(){
-	    
-    Celula aux;
-    
+	/**
+	 * Método que mostra todos os compromissos criados do calendário
+	 */
+	public void mostrarTodosCompromissos() {
+    	Celula aux;
+
 	    if (! listaVazia()) {
 	        System.out.println("Conteúdo da lista:");
 	        
@@ -137,9 +142,12 @@ private int tamanho;
 	    }
 	}
 	
-	
-	public void mostrarCompromissosIntervalo(Data dataInicial, Data dataFinal){
-	    
+	/**
+	 * Método que imprime os compromissos marcados entre os datas parametrizadas. 
+	 * @param dataInicial parâmetro do tipo Data com dia, mês e ano
+	 * @param dataFinal parâmetro do tipo Data com dia, mês e ano
+	 */
+	public void mostrarCompromissosIntervalo(Data dataInicial, Data dataFinal) {
 	    Celula aux;
 	    
 	    if (! listaVazia()) {
@@ -147,20 +155,12 @@ private int tamanho;
 	        
 	        aux = primeiro.getProximo();
 	        while (aux != null) {
-	        	if(aux.getItem().getData().eMenor(dataFinal)) {
-	        		if((dataInicial.eMenor(aux.getItem().getData())))
+	        	if (aux.getItem().getData().eMenor(dataFinal)) {
+	        		if ((dataInicial.eMenor(aux.getItem().getData())))
 			            aux.getItem().imprimir();
-			            
 	        	}
 				aux = aux.getProximo();
 	        }
 	    }
 	}
-
-	
-
-
-
-
-
 }
