@@ -27,14 +27,14 @@ public class App {
 
 
 		System.out.println("\nAdicionando o compromisso basquete de 7 em 7 dias durante 4 semanas:");
-		Compromisso basquete = new Compromisso("Basquete",3,11,2022,12);
-		calendario.adicionarCompromissoRepetido(basquete,30);
+		Compromisso basquete = new Compromisso("Basquete",3,10,2022,12);
+		calendario.adicionarCompromissoRepetido(basquete,20);
 		System.out.println("Mostrando calendário:");
 		calendario.mostrarTodosCompromissos();
 
 		
-		System.out.println("\nMostrando os compromissos entre as datas 07/10/2022 e 20/11/2022");
-		Data dataInicial = new Data(7,10,2022);
+		System.out.println("\nMostrando os compromissos entre as datas 03/10/2022 e 20/11/2022");
+		Data dataInicial = new Data(3,10,2022);
 		Data dataFinal = new Data(20,11,2022);
 		calendario.mostrarCompromissosIntervalo(dataInicial, dataFinal);
 	}

@@ -15,9 +15,11 @@ class testData {
         Data dataAtual = new Data();
         Data comparaFalse = new Data(28,10,2022);
         Data comparaTrue = new Data(28,6,2022);
+        Data comparaIgual = new Data(28,6,2022);
         
         assertEquals(comparaTrue.eMenor(dataAtual), true);
         assertEquals(comparaFalse.eMenor(dataAtual), false);
+        assertEquals(comparaIgual.eMenor(comparaTrue), true);
     }
 
     //* Testa se o metodo de adicionar dia esta funcionando corretamente */

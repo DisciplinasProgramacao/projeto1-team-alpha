@@ -129,7 +129,7 @@ public class Data{
      */
     public boolean eMenor(Data data){
         if(this.getAno() == data.getAno() && this.getMes() == data.getMes() && this.getDia() == data.getDia()){
-            return false;
+            return true;
         }else{
             if (this.getAno() < data.getAno()){
                 return true;
