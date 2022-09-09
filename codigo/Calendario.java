@@ -171,10 +171,10 @@ private int tamanho;
 	        
 	        aux = primeiro.getProximo();
 	        while (aux != null) {
-	        	if(aux.getItem().getData().eMenor(dataFinal)) {
-	        		if((dataInicial.eMenor(aux.getItem().getData())))
+	        	if(!dataFinal.eMenor(aux.getItem().getData())) {
+	        		if((dataInicial.eMenor(aux.getItem().getData()))){
 			            aux.getItem().imprimir();
-			            
+					}
 	        	}
 				aux = aux.getProximo(); 
 	        }

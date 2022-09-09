@@ -137,7 +137,7 @@ public class Data{
                 if (this.getMes() < data.getMes()){
                     return true;
                 }else{
-                    if(this.getDia() <data.getDia()){
+                    if(this.getDia() < data.getDia()){
                         return true;
                     }else{
                         return false;
@@ -145,8 +145,6 @@ public class Data{
                 }
             }
         }
-        
-
     }
     //#endregion
 
