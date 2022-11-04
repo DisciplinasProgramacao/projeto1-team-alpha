@@ -7,9 +7,11 @@
 	- não há relação entre Calendario e Data
 	- compromisso sem repetir é um compromisso com 0 repetições: método duplicado
 	- método de inserção no calendário tem lógica incompreensível e trechos como:
-		`int posicao = 0;`
-		`for (int i = 0; i < posicao; i++)`
-		`	anterior = anterior.getProximo();`
+		```
+		int posicao = 0;
+		for (int i = 0; i < posicao; i++)
+			anterior = anterior.getProximo();
+		```
 		(este for nunca é verdadeiro)		
 ## Requisitos corretamente implementados: 9/9 pontos 
 	
